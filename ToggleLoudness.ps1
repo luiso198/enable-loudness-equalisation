@@ -5,7 +5,7 @@
     Reads current registry configuration for the target playback device,
     inverts the Loudness Equalisation flag, imports the changes, and restarts audiosrv.
 .LINK
-    https://github.com/Falcosc/enable-loudness-equalisation
+    https://github.com/luiso198/enable-loudness-equalisation
 .PARAMETER playbackDeviceName
     Device name, interface name, or GUID substring to match against active playback devices.
 .PARAMETER maxDeviceCount

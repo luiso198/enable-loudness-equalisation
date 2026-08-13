@@ -5,7 +5,7 @@
     Imports registry keys into FxProperties to activate Audio Processing Objects (APO)
     and enables Loudness Equalisation. Restarts audiosrv to apply changes immediately.
 .LINK
-    https://github.com/Falcosc/enable-loudness-equalisation
+    https://github.com/luiso198/enable-loudness-equalisation
 .PARAMETER playbackDeviceName
     Device name, interface name, or GUID substring to match against active playback devices.
 .PARAMETER maxDeviceCount
