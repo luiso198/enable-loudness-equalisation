@@ -122,9 +122,27 @@ if ([string]::IsNullOrWhiteSpace($playbackDeviceName)) {
         $playbackDeviceName = $allActive[0].FriendlyName
         Write-Host "Auto-selected single active device: '$playbackDeviceName'" -ForegroundColor Cyan
     } else {
-        Write-Host "Available active devices:" -ForegroundColor Yellow
-        $allActive | Format-Table -Property FriendlyName, Interface, Status -AutoSize
-        Exit-WithErrorMsg "Parameter -playbackDeviceName is required when multiple active devices exist."
+        Write-Host "Available active devices:`n" -ForegroundColor Yellow
+        for ($i = 0; $i -lt $allActive.Count; $i++) {
+            $num = $i + 1
+            $name = $allActive[$i].FriendlyName
+            $iface = $allActive[$i].Interface
+            $status = $allActive[$i].Status
+            Write-Host "  [$num] $name ($iface) - Status: $status" -ForegroundColor Cyan
+        }
+        Write-Host ""
+        if ($Quiet) {
+            Exit-WithErrorMsg "Parameter -playbackDeviceName is required when multiple active devices exist."
+        }
+        $selection = Read-Host "Ingresa el número (1-$($allActive.Count)) o nombre del dispositivo a configurar"
+        if ([string]::IsNullOrWhiteSpace($selection)) {
+            Exit-WithErrorMsg "No se seleccionó ningún dispositivo. Operación cancelada."
+        }
+        if ($selection -match '^\d+$' -and [int]$selection -ge 1 -and [int]$selection -le $allActive.Count) {
+            $playbackDeviceName = $allActive[[int]$selection - 1].FriendlyName
+        } else {
+            $playbackDeviceName = $selection.Trim()
+        }
     }
 }
 

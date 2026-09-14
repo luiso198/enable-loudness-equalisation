@@ -5,7 +5,7 @@
 ### En una sola línea:
 Abre **PowerShell** y pega el siguiente comando:
 ```powershell
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; Invoke-WebRequest "https://raw.githubusercontent.com/luiso198/enable-loudness-equalisation/main/EnableLoudness.ps1" -OutFile "$HOME\EnableLoudness.ps1"; & "$HOME\EnableLoudness.ps1" -releaseTime 2
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force; Invoke-WebRequest "https://raw.githubusercontent.com/luiso198/enable-loudness-equalisation/main/EnableLoudness.ps1" -OutFile "$HOME\EnableLoudness.ps1"; & "$HOME\EnableLoudness.ps1" -playbackDeviceName "Altavoces" -releaseTime 2
 ```
 
 ### O paso a paso:
@@ -16,8 +16,8 @@ Invoke-WebRequest "https://raw.githubusercontent.com/luiso198/enable-loudness-eq
 # 2. Permitir la ejecución de scripts
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
 
-# 3. Ejecutar y activar
-& "$HOME\EnableLoudness.ps1" -releaseTime 2
+# 3. Ejecutar y activar (reemplaza "Altavoces" por el nombre de tu dispositivo si usas otro)
+& "$HOME\EnableLoudness.ps1" -playbackDeviceName "Altavoces" -releaseTime 2
 ```
 
 ---
