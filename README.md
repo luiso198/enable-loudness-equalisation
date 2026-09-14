@@ -13,6 +13,7 @@ Only works if your audio driver supports enhancements/APO for speakers, but didn
 * **Windows 11 Pro (22H2 / 23H2 / 24H2) Compatible**: Optimized for modern Windows 11 audio endpoint architecture.
 * **Auto-Detection & Listing**: View all active playback devices and their current status with `-ListDevices`.
 * **Safe Substring & Special Character Matching**: Properly handles device names with parentheses and brackets (e.g., `Altavoces (Realtek(R) Audio)` or `[USB Audio]`).
+* **Interactive Selection**: When multiple devices exist and none is specified, interactively prompts you to choose by number or name directly in the terminal.
 * **Query Status**: Check if Loudness Equalisation is `Enabled`, `Disabled`, or `Not Configured` via `-GetStatus`.
 * **Automatic UAC Elevation**: Automatically requests administrator privileges when required.
 
